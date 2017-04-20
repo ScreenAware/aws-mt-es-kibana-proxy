@@ -287,7 +287,6 @@ app.use(function (req, res) {
     // exchange default kibana index to user-customized kibana index
     var sess  = req.session;
     req.url = req.url.replace( /\/.kibana-4[^\/]*/g ,'/.kibana-4-' + sess.tenantId);
-  }
   } else if(pathname.indexOf('.kibana-5') > -1 && pathname.indexOf('/field/_source') > -1) {
     // special case: kibana code written in hard code way to read .kibana-5, so this api won't return user-customized kibana index
     return res.json(JSON.parse('{".kibana-5":{"mappings":{"index-pattern":{"_source":{"full_name":"_source","mapping":{}}},"config":{"_source":{"full_name":"_source","mapping":{}}}}}}'));
